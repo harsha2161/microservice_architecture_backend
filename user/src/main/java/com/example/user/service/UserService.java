@@ -37,9 +37,9 @@ public class UserService {
         return userDTO;
     }
 
-    public UserDTO deleteUser(UserDTO userDTO){
+    public String deleteUser(UserDTO userDTO){
         userRepo.delete(modelMapper.map(userDTO, User.class));
-        return userDTO;
+        return "delete completed";
     }
 
 

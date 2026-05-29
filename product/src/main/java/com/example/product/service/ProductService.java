@@ -38,8 +38,8 @@ public class ProductService {
         return productDTO;
     }
 
-    public String deleteProduct(ProductDTO productDTO) {
-        productRepo.delete(modelMapper.map(productDTO, Product.class));
+    public String deleteProduct(int id) {
+        productRepo.deleteById(id);
         return "delete completed";
     }
 }

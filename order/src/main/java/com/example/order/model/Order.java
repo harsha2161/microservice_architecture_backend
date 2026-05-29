@@ -18,6 +18,6 @@ public class Order {
     @Id
     private int id;
     private int itemId;
-    private String date;
+    private String orderDate;
     private int amount;
 }

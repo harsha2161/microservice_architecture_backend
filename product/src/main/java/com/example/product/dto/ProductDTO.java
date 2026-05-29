@@ -14,6 +14,5 @@ public class ProductDTO {
     private int price;
     private String description;
     private String image;
-    private Boolean isAvailable;
-    private int quantity;
+    private Boolean forSale;
 }

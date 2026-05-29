@@ -34,10 +34,10 @@ public class ProductController {
         return productService.updateProduct(productDTO);
     }
 
-    @DeleteMapping("/deleteproduct")
-    public String deleteProduct(@RequestBody ProductDTO productDTO){
+    @DeleteMapping("/deleteproduct/{id}")
+    public String deleteProduct(@PathVariable int id ){
 
-        return productService.deleteProduct(productDTO);
+        return productService.deleteProduct(id);
     }
 
 

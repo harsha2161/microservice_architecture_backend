@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/product")
 
 public class ProductController {
 
@@ -21,6 +21,12 @@ public class ProductController {
 
         return productService.getAllProducts();
     }
+
+    @GetMapping("/getproductbyid/{id}")
+    public ProductDTO getProductById(@PathVariable Integer id){
+        return  productService.getItemById(id);
+    }
+
 
     @PostMapping("/saveproduct")
     public ProductDTO saveProduct(@RequestBody ProductDTO productDTO){

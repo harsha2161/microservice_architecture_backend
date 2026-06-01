@@ -13,6 +13,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.List;
 
@@ -56,7 +57,8 @@ public class OrderService {
                                                     //
                    .block(); // use returns by bodyToMono
 
-           // assert inventoryResponse != null; // some time can issue. this line miss compile sometimes. therefor use if else statement or java utile.object
+         //   assert inventoryResponse != null; // some time can issue. this line miss compile sometimes. therefor use if else statement or java utile.object
+
             if(inventoryResponse == null){
                 return new ErrorOrderResponce("item not found");
             }
@@ -84,10 +86,15 @@ public class OrderService {
                     return new ErrorOrderResponce("item out of stoke");
                 }
 
-        }catch (Exception e){
-            e.printStackTrace();
         }
-
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+        catch (WebClientResponseException e){
+            if(e.getStatusCode().is5xxServerError()){
+                return new ErrorOrderResponce("item not found");
+            }
+        }
         return null;
     }
 

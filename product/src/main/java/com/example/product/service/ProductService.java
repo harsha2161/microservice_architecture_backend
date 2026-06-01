@@ -28,6 +28,15 @@ public class ProductService {
 
     }
 
+    public ProductDTO getItemById(Integer itemId) {
+        Product item = productRepo.getItemById(itemId);
+        if (item == null) {
+
+            return null;
+        }
+        return modelMapper.map(item, ProductDTO.class);
+    }
+
     public ProductDTO saveProduct(ProductDTO productDTO){
         productRepo.save(modelMapper.map(productDTO,Product.class));
         return productDTO;

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/order")
 
 public class OrderController {
 
@@ -26,9 +26,15 @@ public class OrderController {
     public OrderResponse createOrder(@RequestBody OrderDTO orderDTO){
         return orderService.createOrder(orderDTO);
     }
+
     @PutMapping("/updateorder")
     public OrderDTO updateOrder(@RequestBody OrderDTO orderDTO) {
         return orderService.updateOrder(orderDTO);
+    }
+
+    @DeleteMapping("/deleteorder/{id}")
+    public String deleteOrder(@PathVariable int id){
+        return orderService.deleteOrder(id);
     }
 
 }

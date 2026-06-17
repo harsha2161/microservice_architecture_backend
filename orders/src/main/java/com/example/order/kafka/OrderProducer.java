@@ -16,9 +16,9 @@ public class OrderProducer {
     private static  final Logger LOGGER = LoggerFactory.getLogger(OrderEventDTO.class);
 
     private  final NewTopic orderTopic;
-    private  final KafkaTemplate<String, OrderEventDTO> kafkaTemplate;
+    private  final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public OrderProducer(NewTopic newTopic, KafkaTemplate<String, OrderEventDTO> kafkaTemplate) {
+    public OrderProducer(NewTopic newTopic, KafkaTemplate<String, Object> kafkaTemplate) {
         this.orderTopic = newTopic;
         this.kafkaTemplate = kafkaTemplate;
     }

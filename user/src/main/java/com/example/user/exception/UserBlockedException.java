@@ -1,4 +1,4 @@
-package com.example.user.Exception;
+package com.example.user.exception;
 
 public class UserBlockedException extends RuntimeException {
 

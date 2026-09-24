@@ -1,4 +1,4 @@
-package com.example.user.model;
+package com.example.user.entity;
 import com.example.user.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

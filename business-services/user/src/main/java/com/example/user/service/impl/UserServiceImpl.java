@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     private final RefreshTokenService refreshTokenService;
 
     @Override
-    public ResponseEntity<ApiResponseDTO> createUser(UserCreateDTO userCreateDTO) {
+    public ResponseEntity<ApiResponseDTO> createUser(UserResponseDTO.UserCreateDTO userCreateDTO) {
         if (userRepository.existsByEmail(userCreateDTO.getEmail())) {
             throw new EmailAlreadyExistsException("Email Already Exists");
         }
